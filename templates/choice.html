@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose Format & Quality</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9389449959230180" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Select Format for: {{ title }}</h1>
+    <form action="/download_selected" method="post">
+      <input type="hidden" name="url" value="{{ url }}">
+      <select name="itag" required>
+        {% for stream in streams %}
+          <option value="{{ stream.itag }}">
+            {{ stream.mime_type }} - {{ stream.resolution or stream.abr }}
+          </option>
+        {% endfor %}
+      </select>
+      <button type="submit">Download</button>
+    </form>
+  </div>
+</body>
+</html>
