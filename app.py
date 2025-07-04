@@ -13,7 +13,12 @@ def index():
 
 @app.route("/download", methods=["POST"])
 def download():
-    url = request.form["url"]
+   url = request.form["url"].strip()
+if url.startswith("ttps://"):
+    url = "h" + url
+elif not url.startswith("http"):
+    return render_template("error.html", error_message="Please enter a valid YouTube URL starting with https://")
+
     format_choice = request.form["format"]
 
     try:
