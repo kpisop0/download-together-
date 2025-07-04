@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Download Together</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9389449959230180" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Download Together</h1>
+    <form action="/download" method="post">
+      <input type="text" name="url" placeholder="Paste YouTube URL here..." required />
+      <select name="format">
+        <option value="audio">Audio Only</option>
+        <option value="360">Video 360p</option>
+        <option value="720">Video 720p</option>
+        <option value="1080">Video 1080p</option>
+      </select>
+      <button type="submit">Download</button>
+    </form>
+  </div>
+</body>
+</html>
